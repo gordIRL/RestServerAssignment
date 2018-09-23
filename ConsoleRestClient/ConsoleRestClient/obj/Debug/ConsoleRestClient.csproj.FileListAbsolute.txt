@@ -1,0 +1,12 @@
+C:\00_REST_stuff\ConsoleRestClient\ConsoleRestClient\bin\Debug\ConsoleRestClient.exe.config
+C:\00_REST_stuff\ConsoleRestClient\ConsoleRestClient\bin\Debug\ConsoleRestClient.exe
+C:\00_REST_stuff\ConsoleRestClient\ConsoleRestClient\bin\Debug\ConsoleRestClient.pdb
+C:\00_REST_stuff\ConsoleRestClient\ConsoleRestClient\bin\Debug\Newtonsoft.Json.dll
+C:\00_REST_stuff\ConsoleRestClient\ConsoleRestClient\bin\Debug\System.Net.Http.Formatting.dll
+C:\00_REST_stuff\ConsoleRestClient\ConsoleRestClient\bin\Debug\Newtonsoft.Json.xml
+C:\00_REST_stuff\ConsoleRestClient\ConsoleRestClient\bin\Debug\System.Net.Http.Formatting.xml
+C:\00_REST_stuff\ConsoleRestClient\ConsoleRestClient\obj\Debug\ConsoleRestClient.csproj.CoreCompileInputs.cache
+C:\00_REST_stuff\ConsoleRestClient\ConsoleRestClient\obj\Debug\ConsoleRestClient.csproj.CopyComplete
+C:\00_REST_stuff\ConsoleRestClient\ConsoleRestClient\obj\Debug\ConsoleRestClient.exe
+C:\00_REST_stuff\ConsoleRestClient\ConsoleRestClient\obj\Debug\ConsoleRestClient.pdb
+C:\00_REST_stuff\ConsoleRestClient\ConsoleRestClient\obj\Debug\ConsoleRestClient.csprojAssemblyReference.cache
