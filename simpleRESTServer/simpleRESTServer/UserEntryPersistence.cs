@@ -12,14 +12,15 @@ namespace simpleRESTServer
         
         public UserEntryPersistence()
         {
-            // VIDEO 3 (10:11)
             string myConnectionString;
             myConnectionString = Properties.Settings.Default.connString;
 
             try
             {
-                conn = new SqlConnection();
-                conn.ConnectionString = myConnectionString;
+                conn = new SqlConnection
+                {
+                    ConnectionString = myConnectionString
+                };
                 conn.Open();
             }
             catch(SqlException ex)
@@ -31,8 +32,6 @@ namespace simpleRESTServer
 
         public int SaveUserEntry(UserEntry userEntryToSave)
         {
-            // VIDEO 3 (17:28)
-
             // define INSERT query with parameters
             string query = "INSERT INTO dbo.UserEntry (Category, Notes, StartDate, EndDate) " +
                            "VALUES (@Category, @Notes, @StartDate, @EndDate) ; " +
@@ -57,7 +56,6 @@ namespace simpleRESTServer
 
         public UserEntry GetUserEntry(int id)
         {
-            // VIDEO 5 (7:51)
             UserEntry userEntry = new UserEntry();
             SqlDataReader sqlDataReader = null;
 
@@ -69,7 +67,6 @@ namespace simpleRESTServer
             sqlDataReader = cmd.ExecuteReader();
             if (sqlDataReader.Read())
             {
-                // testEntry.Category = oReader["Category"].ToString();
                 userEntry.Id = sqlDataReader.GetInt32(0);
                 userEntry.Category = sqlDataReader.GetString(1);
                 userEntry.Notes = sqlDataReader.GetString(2);
@@ -87,13 +84,12 @@ namespace simpleRESTServer
 
 
         public List<UserEntry> GetUserEntries()
-        {
-            // VIDEO 6 (4:04)    
+        {              
             List<UserEntry> userEntryList = new List<UserEntry>();
 
             SqlDataReader sqlDataReader = null;
 
-            string query = "SELECT * FROM dbo.UserEntry ";   // +  "WHERE Id = @Id";
+            string query = "SELECT * FROM dbo.UserEntry ";   
             SqlCommand cmd = new SqlCommand(query, conn);
 
             sqlDataReader = cmd.ExecuteReader();              
@@ -101,7 +97,6 @@ namespace simpleRESTServer
             while (sqlDataReader.Read())
             {
                 UserEntry userEntry = new UserEntry();
-                // testEntry.Category = oReader["Category"].ToString();
                 userEntry.Id = sqlDataReader.GetInt32(0);
                 userEntry.Category = sqlDataReader.GetString(1);
                 userEntry.Notes = sqlDataReader.GetString(2);
@@ -117,8 +112,6 @@ namespace simpleRESTServer
 
         public bool DeleteUserEntry(int id)
         {
-            // VIDEO 7 (5:15)    // using 202 & 404  (2:18)
-           
             SqlDataReader sqlDataReader = null;
 
             string query = "SELECT * FROM dbo.UserEntry WHERE Id = @Id";
@@ -151,8 +144,6 @@ namespace simpleRESTServer
 
         public bool UpdateUserEntry(int id, UserEntry userEntryToUpdate)
         {
-            // VIDEO 8 (7:32)    
-
             SqlDataReader sqlDataReader = null;
 
             string query = "SELECT * FROM dbo.UserEntry WHERE Id = @Id";
@@ -185,7 +176,5 @@ namespace simpleRESTServer
                 return false;
             }
         }
-
-
-    }//
-}//
+    }
+}

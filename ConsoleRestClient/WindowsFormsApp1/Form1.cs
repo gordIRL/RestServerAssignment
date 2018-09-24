@@ -9,10 +9,12 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        String localHostAddress = "http://localhost:49661/";
+
         public Form1()
         {
             InitializeComponent();
-
+                        
             comboCategory.DataSource = Enum.GetValues(typeof(ActivitiesEnum));
 
             timePicker_start.Format = DateTimePickerFormat.Time;
@@ -49,7 +51,8 @@ namespace WindowsFormsApp1
             using (var client = new HttpClient())
             {
                 // go get the data
-                client.BaseAddress = new Uri("http://localhost:49661/");
+                //client.BaseAddress = new Uri("http://localhost:49661/");
+                client.BaseAddress = new Uri(localHostAddress);
                 client.DefaultRequestHeaders.Accept.Clear();
 
                 // tell it that we want JSON back
@@ -87,7 +90,7 @@ namespace WindowsFormsApp1
                 using (var client = new HttpClient())
                 {
                     // go get the data
-                    client.BaseAddress = new Uri("http://localhost:49661/");
+                    client.BaseAddress = new Uri(localHostAddress);
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     HttpResponseMessage response;
@@ -120,7 +123,7 @@ namespace WindowsFormsApp1
             using (var client = new HttpClient())
             {
                 // go get the data
-                client.BaseAddress = new Uri("http://localhost:49661/");
+                client.BaseAddress = new Uri(localHostAddress);
                 client.DefaultRequestHeaders.Accept.Clear();
 
                 // tell it that we want JSON back
@@ -143,8 +146,7 @@ namespace WindowsFormsApp1
                     catch
                     {                       
                         MessageBox.Show("Non existent Id");
-                    }
-                    
+                    }                    
                 }
                 else
                 {
@@ -152,7 +154,6 @@ namespace WindowsFormsApp1
                     listBoxDisplay.Items.Add("No data to return");
                 }
             }
-
         }
 
         private async void btnAddEntry_Click(object sender, EventArgs e)
@@ -171,13 +172,11 @@ namespace WindowsFormsApp1
             listBoxDisplay.Items.Add("Finish: " + endDateTime.ToString());
             listBoxDisplay.Items.Add("Notes:");
             listBoxDisplay.Items.Add(notes);
-
-
-            // VIDEO Client_1(15:39)
+                       
             using (var client = new HttpClient())
             {
                 // go get the data
-                client.BaseAddress = new Uri("http://localhost:49661/");
+                client.BaseAddress = new Uri(localHostAddress);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -246,7 +245,7 @@ namespace WindowsFormsApp1
             using (var client = new HttpClient())
             {
                 // go get the data
-                client.BaseAddress = new Uri("http://localhost:49661/");
+                client.BaseAddress = new Uri(localHostAddress);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

@@ -284,7 +284,7 @@
             this.Controls.Add(this.listBoxDisplay);
             this.Controls.Add(this.btnGetAll);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Rest Client";
             this.ResumeLayout(false);
             this.PerformLayout();
 

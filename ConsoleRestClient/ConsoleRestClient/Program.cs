@@ -20,7 +20,6 @@ namespace ConsoleRestClient
 
         static async Task RunAsync()
         {
-            // VIDEO Client_1(15:39)
             using (var client = new HttpClient())
             {
                 // go get the data
@@ -65,9 +64,6 @@ namespace ConsoleRestClient
 
                 if (response.IsSuccessStatusCode)
                 {
-                    //string myTest = await response.Content.ReadAsStringAsync();
-                    //Console.Write("My string is : {0}", myTest);
-
                     UserEntry userEntry = await response.Content.ReadAsAsync<UserEntry>();
                     Console.WriteLine("{0}\t{1}\t{2}\t{3}\t{4}",
                         userEntry.Id, userEntry.Category, userEntry.Notes, userEntry.StartDate, userEntry.EndDate);                    
@@ -76,7 +72,6 @@ namespace ConsoleRestClient
                 {
                     Console.Write("No data to return");
                 }
-
 
                 Console.WriteLine("\n\nGET all user entries");
                 response = await client.GetAsync("api/UserEntry");

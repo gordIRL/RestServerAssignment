@@ -23,7 +23,6 @@ namespace simpleRESTServer.Controllers
         // GET: api/UserEntry/5
         public UserEntry Get(int id)
         {
-            // VIDEO 5 (9:06)
             UserEntryPersistence uep = new UserEntryPersistence();
             UserEntry userEntry = uep.GetUserEntry(id);
             return userEntry;
@@ -35,12 +34,10 @@ namespace simpleRESTServer.Controllers
         // POST: api/UserEntry
         public HttpResponseMessage Post([FromBody]UserEntry value)
         {
-            // VIDEO 4 (2:42)
             UserEntryPersistence uep = new UserEntryPersistence();
             int id = uep.SaveUserEntry(value);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created);
-
-            // header VIDEO 4(7:36)
+                       
             // response coming back should include the location of the new resource
             response.Headers.Location = new Uri(Request.RequestUri, string.Format("UserEntry/{0}", id));
             
@@ -52,7 +49,6 @@ namespace simpleRESTServer.Controllers
         // PUT: api/UserEntry/5
         public HttpResponseMessage Put(int id, [FromBody]UserEntry value)
         {
-            // VIDEO 8 (9:36)
             UserEntryPersistence uep = new UserEntryPersistence();
             bool recordExisted = false;
             recordExisted = uep.UpdateUserEntry(id, value);
@@ -77,7 +73,6 @@ namespace simpleRESTServer.Controllers
         // DELETE: api/UserEntry/5
         public HttpResponseMessage Delete(int id)
         {
-            // VIDEO 7 (8:26)
             UserEntryPersistence uep = new UserEntryPersistence();
             bool recordExisted = false;
 
